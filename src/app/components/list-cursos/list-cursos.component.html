@@ -1,0 +1,31 @@
+<div class="row mt-3">
+  <div class="col-lg-6">
+    <h3>Listado de Cursos</h3>
+  </div>
+  <div class="col-lg-6">
+    <button class="btn btn-success float-end" routerLink="/agregar">Nuevo Curso</button>
+  </div>
+</div>
+<table *ngIf="listCursos.length > 0" class="table table-hover mt-3">
+  <thead>
+    <tr>
+      <td>Título</td>
+      <td>Encargado</td>
+      <td>Fecha</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let curso of listCursos">
+      <td>{{ curso.titulo }}</td>
+      <td>{{ curso.encargado }}</td>
+      <td>{{ curso.fechaCreacion | date : "dd/MM/yyyy" }}</td>
+      <td width="10%"><button class="btn btn-primary btn-sm float-end">Editar</button></td>
+      <td width="10%"><button class="btn btn-danger btn-sm float-end">Eliminar</button></td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="listCursos.length == 0" class="row mt-5">
+  <h5>No hay cursos para mostrar</h5>
+</div>
