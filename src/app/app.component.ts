@@ -2,6 +2,7 @@ import { ListCursosComponent } from './components/list-cursos/list-cursos.compon
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   imports: [ 
     RouterOutlet,
     ListCursosComponent,
-    NavbarComponent
+    NavbarComponent,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

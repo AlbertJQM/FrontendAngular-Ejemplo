@@ -3,11 +3,13 @@
     <h3>Listado de Cursos</h3>
   </div>
   <div class="col-lg-6">
-    <button class="btn btn-success float-end" routerLink="/agregar">Nuevo Curso</button>
+    <button class="btn btn-success float-end" routerLink="/agregar">
+      Nuevo Curso
+    </button>
   </div>
 </div>
 <table *ngIf="listCursos.length > 0" class="table table-hover mt-3">
-  <thead>
+  <thead class="table-light">
     <tr>
       <td>Título</td>
       <td>Encargado</td>
@@ -16,13 +18,19 @@
       <td></td>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="table-group-divider">
     <tr *ngFor="let curso of listCursos">
-      <td>{{ curso.titulo }}</td>
-      <td>{{ curso.encargado }}</td>
-      <td>{{ curso.fechaCreacion | date : "dd/MM/yyyy" }}</td>
-      <td width="10%"><button class="btn btn-primary btn-sm float-end">Editar</button></td>
-      <td width="10%"><button class="btn btn-danger btn-sm float-end">Eliminar</button></td>
+      <td>
+        <a [routerLink]="['/ver', curso.id]">{{ curso.titulo }}</a>
+      </td>
+      <td>{{ curso.creador }}</td>
+      <td>{{ curso.fecha | date : "dd/MM/yyyy" }}</td>
+      <td width="10%">
+        <button class="btn btn-primary btn-sm float-end">Editar</button>
+      </td>
+      <td width="10%">
+        <button (click)="eliminarCurso(curso.id)" class="btn btn-danger btn-sm float-end">Eliminar</button>
+      </td>
     </tr>
   </tbody>
 </table>
